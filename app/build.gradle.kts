@@ -4,6 +4,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -55,6 +56,7 @@ android {
 dependencies {
 
     val lifecycle_version = "2.6.2"
+    val dagger_hilt_version = "2.48"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -76,10 +78,16 @@ dependencies {
     // Annotation processor
     kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
 
+    //Dagger & Hilt
+    implementation("com.google.dagger:hilt-android:$dagger_hilt_version")
+    kapt("com.google.dagger:hilt-android-compiler:$dagger_hilt_version")
+
 
     //testImplementation
     testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
     testImplementation("com.google.truth:truth:1.1.3")
+
+
 }
 
 kapt {
